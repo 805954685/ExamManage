@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>试题管理</title>
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="../resources/images/favicon.ico"/>
+    <link href="../resources/bootstrap/css/bootstrap-huan.css" rel="stylesheet">
+    <link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+
+    <link href="../resources/css/exam.css" rel="stylesheet">
+    <link href="../resources/chart/morris.css" rel="stylesheet">
+    <style>
+        .change-property, .publish-paper, .delete-paper, .offline-paper {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span style="display:none;" id="rule-role-val"><%=list[1]%></span>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-5">
+                <div class="logo">
+                    <h1><a href="#">网站管理系统</a></h1>
+
+                    <div class="hmeta">
+                        专注互联网在线考试解决方案
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7" id="login-info">
+
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Navigation bar starts -->
+
+<div class="navbar bs-docs-nav" role="banner">
+    <div class="container">
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        </nav>
+    </div>
+</div>
+
+<!-- Navigation bar ends -->
+
+<!-- Slider starts -->
+
+<div>
+    <!-- Slider (Flex Slider) -->
+
+    <div class="container" style="min-height:500px;">
+
+        <div class="row">
+            <div class="col-xs-2" id="left-menu">
+            </div>
+            <div class="col-xs-10" id="right-content">
+                <div class="page-header">
+                    <h1><i class="fa fa-list-ul"></i> 试卷管理 </h1>
+                </div>
+                <div class="page-content">
+                    <div id="question-filter">
+                        <dl id="question-filter-pagetype">
+                            <dt>
+                                分类：
+                            </dt>
+                            <dd>
+                                <span data-id="0">全部</span>
+
+                            </dd>
+                        </dl>
+
+
+                        <div class="page-link-content">
+                            <ul class="pagination pagination-sm">${pageStr}</ul>
+                        </div>
+                    </div>
+                    <div class="table-search table-controller-item"
+                         style="float: left; width: 200px;">
+                        <div class="input-group search-form">
+                            <input type="text" class="form-control" placeholder="搜索试卷" value="${searchStr }"
+                                   id="txt-search">
+									<span class="input-group-btn">
+										<button class="btn btn-sm btn-default" type="button"
+                                                id="btn-search">
+                                            <i class="fa fa-search"></i>搜索
+                                        </button> </span>
+                        </div>
+                    </div>
+                    <div id="question-list">
+                        <table class="table-striped table">
+                            <thead>
+                            <tr>
+                                <td></td>
+                                <td>ID</td>
+                                <td>试卷名称</td>
+                                <td>时长</td>
+                                <td>类别</td>
+                                <td>创建人</td>
+                                <td>状态</td>
+                                <td>操作</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="${item.id }">
+                                </td>
+                                <td>${item.id }</td>
+                                <td><a href="<%=list[1]%>/exampaper/exampaper-preview/${item.id }" target="_blank"
+                                       title="预览" class="td-paper-name">${item.name }</a></td>
+                                <td><span class="td-paper-duration">${item.duration}</span>分钟</td>
+                                <td>
+
+                                </td>
+                                <td>${item.creator }</td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                    <a class="export-paper btn-sm btn-success" data-id="${item.id}" title="导出"><i
+                                            class="fa fa-download"></i></a>
+                                </td>
+                            </tr>
+                            </c:forEach>
+
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                        <div class="modal fade" id="change-property-modal" tabindex="-1" role="dialog"
+                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">&times;</button>
+                                        <h6 class="modal-title" id="myModalLabel">修改试卷属性</h6>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="question-add-form">
+                                            <span id="add-update-exampaperid" style="display:none;"></span>
+
+                                            <div class="form-line add-update-exampapername">
+                                                <span class="form-label"><span
+                                                        class="warning-label">*</span>试卷名称：</span>
+                                                <input type="text" class="df-input-narrow">
+                                                <span class="form-message"></span>
+                                            </div>
+                                            <div class="form-line add-update-duration">
+                                                <span class="form-label"><span
+                                                        class="warning-label">*</span>时长（分钟）：</span>
+                                                <input type="text" class="df-input-narrow">
+                                                <span class="form-message"></span>
+                                            </div>
+                                            <div class="form-line exampaper-type" id="exampaper-type">
+                                                <span class="form-label"><span class="warning-label">*</span>分类：</span>
+                                                <select id="exampaper-type-select" class="df-input-narrow">
+
+                                                    <option value="1">随机组卷</option>
+                                                    <option value="2">模拟考试</option>
+                                                    <option value="3">专家试卷</option>
+                                                </select><span class="form-message"></span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭窗口</button>
+                                        <button id="update-exampaper-btn" type="button" class="btn btn-primary">确定修改
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-link-content">
+                        <ul class="pagination pagination-sm">${pageStr}</ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copy">
+                    <p>
+                        ExamStack Copyright © <a href="http://www.examstack.com/" target="_blank">ExamStack</a> - <a
+                            href="." target="_blank">主页</a> | <a href="http://www.examstack.com/"
+                                                                 target="_blank">关于我们</a> | <a
+                            href="http://www.examstack.com/" target="_blank">FAQ</a> | <a
+                            href="http://www.examstack.com/" target="_blank">联系我们</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Slider Ends -->
+
+<!-- Javascript files -->
+<!-- jQuery -->
+<script type="text/javascript" src="../resources/js/jquery/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="../resources/js/all.js"></script>
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../resources/js/exampaper-list.js?v=1"></script>
+</body>
+</html>

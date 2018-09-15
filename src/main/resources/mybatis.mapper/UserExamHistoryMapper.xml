@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.yunhe.dao.UserExamHistoryDao" >
+  <resultMap id="BaseResultMap" type="cn.yunhe.entity.UserExamHistory" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="exam_id" property="examId" jdbcType="INTEGER" />
+    <result column="exam_paper_id" property="examPaperId" jdbcType="INTEGER" />
+    <result column="enabled" property="enabled" jdbcType="TINYINT" />
+    <result column="point" property="point" jdbcType="INTEGER" />
+    <result column="seri_no" property="seriNo" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="duration" property="duration" jdbcType="INTEGER" />
+    <result column="point_get" property="pointGet" jdbcType="REAL" />
+    <result column="submit_time" property="submitTime" jdbcType="TIMESTAMP" />
+    <result column="approved" property="approved" jdbcType="TINYINT" />
+    <result column="verify_time" property="verifyTime" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+    <result column="answer_sheet" property="answerSheet" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

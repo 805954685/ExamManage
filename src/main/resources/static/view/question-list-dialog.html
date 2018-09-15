@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>试题管理</title>
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="../resources/images/favicon.ico" />
+    <link href="../resources/bootstrap/css/bootstrap-huan.css" rel="stylesheet">
+    <link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+
+    <link href="../resources/css/exam.css" rel="stylesheet">
+    <link href="../resources/chart/morris.css" rel="stylesheet">
+    <style>
+        .examing-point{
+            display:block;
+            font-size:10px;
+            margin-top:5px;
+        }
+        .question-name-td{
+            width:300px;
+        }
+        /* 			input[disabled]{
+                      outline:1px solid red;
+                    }
+        */
+    </style>
+</head>
+<body>
+<span style="display:none;" id="rule-role-val"><%=list[1]%></span>
+<!-- Navigation bar starts -->
+
+
+
+<!-- Navigation bar ends -->
+
+<!-- Slider starts -->
+
+<div>
+    <!-- Slider (Flex Slider) -->
+
+    <div class="container" style="min-height:500px;width:840px;">
+
+        <div class="row">
+
+            <div class="col-xs-12">
+
+                <div class="page-content">
+
+                    <div id="question-filter">
+
+                        <dl id="question-filter-field">
+                            <dt>
+                                专业：
+                            </dt>
+                            <dd>
+
+
+
+                            </dd>
+                        </dl>
+                        <dl id="question-filter-knowledge">
+                            <dt>
+                                知识类：
+                            </dt>
+                            <dd>
+
+
+                            </dd>
+                        </dl>
+
+                        <dl id="question-filter-qt">
+                            <dt>
+                                试题类型：
+                            </dt>
+                            <dd></dd>
+                        </dl>
+                        <div class="page-link-content">
+                            <ul class="pagination pagination-sm">${pageStr}</ul>
+                        </div>
+                    </div>
+                    <div id="question-list">
+                        <input id="field-id-hidden" value="${fieldId }" type="hidden">
+                        <input id="knowledge-hidden" value="${knowledge }" type="hidden">
+                        <input id="question-type-hidden" value="${questionType }" type="hidden">
+                        <input id="search-param-hidden" value="${searchParam }" type="hidden">
+                        <table class="table-striped table">
+                            <thead>
+                            <tr>
+                                <td></td><td>ID</td><td class="question-name-td">试题名称</td><td>试题类型</td><td>专业</td><td>知识类</td><td>创建人</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" value="${items.id }">
+                                    </td>
+                                    <td class="question-id">${items.id }</td>
+                                    <td>
+                                        <a href="<%=list[1]%>/question/question-preview/${items.id }" target="_blank" title="预览">${items.name }</a>
+                                        <span class="examing-point">${items.examingPoint} </span>
+                                    </td>
+
+                                    <td>${items.questionTypeName }</td><td>${items.fieldName }</td><td>${items.pointName }</td><td>${items.creator }</td>
+                                </tr>
+
+
+                            </tbody><tfoot></tfoot>
+                        </table>
+                    </div>
+                    <div class="page-link-content">
+                        <ul class="pagination pagination-sm">${pageStr}</ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Slider Ends -->
+
+<!-- Javascript files -->
+<!-- jQuery -->
+<script type="text/javascript" src="../resources/js/jquery/jquery-1.9.0.min.js"></script>
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../resources/js/all.js"></script>
+<script type="text/javascript" src="../resources/js/question-list4dialog.js?v=1"></script>
+</body>
+</html>

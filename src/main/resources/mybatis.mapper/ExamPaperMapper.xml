@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.yunhe.dao.ExamPaperDao" >
+  <resultMap id="BaseResultMap" type="cn.yunhe.entity.ExamPaper" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="duration" property="duration" jdbcType="INTEGER" />
+    <result column="total_point" property="totalPoint" jdbcType="INTEGER" />
+    <result column="pass_point" property="passPoint" jdbcType="INTEGER" />
+    <result column="group_id" property="groupId" jdbcType="INTEGER" />
+    <result column="is_visible" property="isVisible" jdbcType="BIT" />
+    <result column="status" property="status" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="is_subjective" property="isSubjective" jdbcType="BIT" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="paper_type" property="paperType" jdbcType="VARCHAR" />
+    <result column="field_id" property="fieldId" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+    <result column="answer_sheet" property="answerSheet" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

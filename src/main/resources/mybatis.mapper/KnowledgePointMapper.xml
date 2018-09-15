@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.yunhe.dao.KnowledgePointDao" >
+  <resultMap id="BaseResultMap" type="cn.yunhe.entity.KnowledgePoint" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="point_id" property="pointId" jdbcType="INTEGER" />
+    <result column="point_name" property="pointName" jdbcType="VARCHAR" />
+    <result column="field_id" property="fieldId" jdbcType="INTEGER" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="DECIMAL" />
+  </resultMap>
+</mapper>

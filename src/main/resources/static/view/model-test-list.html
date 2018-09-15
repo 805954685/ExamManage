@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+		<title>考试管理</title>
+		<meta name="keywords" content="">
+		<link rel="shortcut icon" href=" ../resources/images/favicon.ico" />
+		<link href="../resources/bootstrap/css/bootstrap-huan.css" rel="stylesheet">
+		<link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../resources/css/style.css" rel="stylesheet">
+		
+		<link href="../resources/css/exam.css" rel="stylesheet">
+		<link href="../resources/chart/morris.css" rel="stylesheet">
+		<style>
+			.change-property, .publish-paper, .delete-paper, .offline-paper{
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<span style="display:none;" id="rule-role-val"> </span>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-5">
+						<div class="logo">
+							<h1><a href="#">网站管理系统</a></h1>
+							<div class="hmeta">
+								专注互联网在线考试解决方案
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-7" id="login-info">
+						 
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Navigation bar starts -->
+
+		<div class="navbar bs-docs-nav" role="banner">
+			<div class="container">
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+ 				</nav>
+			</div>
+		</div>
+
+		<!-- Navigation bar ends -->
+
+		<!-- Slider starts -->
+
+		<div>
+			<!-- Slider (Flex Slider) -->
+
+			<div class="container" style="min-height:500px;">
+
+				<div class="row">
+					<div class="col-xs-2" id="left-menu">
+ 					</div>
+					<div class="col-xs-10" id="right-content">
+						<div class="page-header">
+							<h1><i class="fa fa-list-ul"></i> 模拟考试 </h1>
+						</div>
+						<div class="page-content">
+							<div id="question-list">
+								<table class="table-striped table">
+									<thead>
+										<tr>
+											<td>ID</td><td>考试名称</td>
+											<td>起始时间</td>
+											<td>截止时间</td>
+											
+											
+											<td>试卷</td><td>创建人</td><td>状态</td><td>操作</td>
+										</tr>
+									</thead>
+									<tbody>
+										 
+											<tr>
+												<td>
+												${item.examId }
+												</td>
+												<td>
+												
+												
+													<span>${item.examName }</span><br>
+													<a href="<%=list[1]%>/exam/exam-student-list/${item.examId }" target="_blank">学员名单</a>
+												
+												</td>
+												<td><fmt:formatDate value="${item.effTime}" pattern="yyyy-MM-dd HH:mm"/></td>
+												<td><fmt:formatDate value="${item.expTime}" pattern="yyyy-MM-dd HH:mm"/></td>
+												<td>${item.examPaperName }</td>
+												<td>${item.creatorId }</td>
+												<td>
+													 
+												</td>
+												<td>
+													 
+												</td>
+												
+											 
+									</tbody><tfoot></tfoot>
+								</table>
+								
+							</div>
+							<div class="page-link-content">
+									<ul class="pagination pagination-sm">${pageStr}</ul>
+								</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="copy">
+							<p>
+								ExamStack Copyright © <a href="http://www.examstack.com/" target="_blank">ExamStack</a> - <a href="." target="_blank">主页</a> | <a href="http://www.examstack.com/" target="_blank">关于我们</a> | <a href="http://www.examstack.com/" target="_blank">FAQ</a> | <a href="http://www.examstack.com/" target="_blank">联系我们</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</footer>
+
+		<!-- Slider Ends -->
+
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		<script type="text/javascript" src="../resources/js/jquery/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="../resources/js/all.js"></script>
+		<!-- Bootstrap JS -->
+		<script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+		
+		<script type="text/javascript" src="../resources/js/exam-list.js"></script>
+	</body>
+</html>

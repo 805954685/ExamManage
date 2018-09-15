@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.yunhe.dao.MenuItemDao" >
+  <resultMap id="BaseResultMap" type="cn.yunhe.entity.MenuItem" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="menu_id" property="menuId" jdbcType="VARCHAR" />
+    <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
+    <result column="menu_href" property="menuHref" jdbcType="VARCHAR" />
+    <result column="menu_seq" property="menuSeq" jdbcType="INTEGER" />
+    <result column="authority" property="authority" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="visiable" property="visiable" jdbcType="TINYINT" />
+  </resultMap>
+</mapper>

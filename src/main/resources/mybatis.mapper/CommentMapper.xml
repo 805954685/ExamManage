@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.yunhe.dao.CommentDao" >
+  <resultMap id="BaseResultMap" type="cn.yunhe.entity.Comment" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="comment_id" property="commentId" jdbcType="INTEGER" />
+    <result column="refer_id" property="referId" jdbcType="INTEGER" />
+    <result column="comment_type" property="commentType" jdbcType="BIT" />
+    <result column="index_id" property="indexId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="quoto_id" property="quotoId" jdbcType="INTEGER" />
+    <result column="re_id" property="reId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="content_msg" property="contentMsg" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>
